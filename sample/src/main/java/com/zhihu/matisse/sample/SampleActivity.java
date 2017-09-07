@@ -33,7 +33,6 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
-import com.zhihu.matisse.engine.impl.PicassoEngine;
 import com.zhihu.matisse.filter.Filter;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
 
@@ -96,7 +95,7 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                                             .theme(R.style.Matisse_Dracula)
                                             .countable(false)
                                             .maxSelectable(9)
-                                            .imageEngine(new PicassoEngine())
+                                            .imageEngine(new GlideEngine())
                                             .forResult(REQUEST_CODE_CHOOSE);
                                     break;
                             }
