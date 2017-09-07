@@ -171,7 +171,18 @@ public class SelectedItemCollection {
             int maxSelectable = SelectionSpec.getInstance().maxSelectable;
             String cause;
 
-            cause = mContext.getString(R.string.error_over_count, maxSelectable);
+            try {
+                cause = mContext.getResources().getQuantityString(
+                        R.plurals.error_over_count,
+                        maxSelectable,
+                        maxSelectable
+                );
+            } catch (Resources.NotFoundException e) {
+                cause = mContext.getString(
+                        R.string.error_over_count,
+                        maxSelectable
+                );
+            }
 
             return new IncapableCause(cause);
         } else if (typeConflict(item)) {
