@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -15,13 +14,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
 import com.zhihu.matisse.R;
 import com.zhihu.matisse.internal.entity.Item;
-import com.zhihu.matisse.internal.utils.PathUtils;
 
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
@@ -78,8 +72,7 @@ public class PhotoViewActivity extends Activity {
 		image.setDisplayType(ImageViewTouchBase.DisplayType.FIT_TO_SCREEN);
 
 		Glide.with(this)
-				.asBitmap()
-				.load(PathUtils.getPath(this, item.getContentUri()))
+				.load(item.getContentUri())
 				.into(image);
 	}
 
