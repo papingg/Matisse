@@ -45,6 +45,7 @@ import com.zhihu.matisse.internal.model.SelectedItemCollection;
 import com.zhihu.matisse.internal.ui.AlbumPreviewActivity;
 import com.zhihu.matisse.internal.ui.BasePreviewActivity;
 import com.zhihu.matisse.internal.ui.MediaSelectionFragment;
+import com.zhihu.matisse.internal.ui.PhotoViewActivity;
 import com.zhihu.matisse.internal.ui.SelectedPreviewActivity;
 import com.zhihu.matisse.internal.ui.adapter.AlbumMediaAdapter;
 import com.zhihu.matisse.internal.ui.adapter.AlbumsAdapter;
@@ -312,11 +313,7 @@ public class MatisseActivity extends AppCompatActivity implements
 
     @Override
     public void onMediaClick(Album album, Item item, int adapterPosition) {
-        Intent intent = new Intent(this, AlbumPreviewActivity.class);
-        intent.putExtra(AlbumPreviewActivity.EXTRA_ALBUM, album);
-        intent.putExtra(AlbumPreviewActivity.EXTRA_ITEM, item);
-        intent.putExtra(BasePreviewActivity.EXTRA_DEFAULT_BUNDLE, mSelectedCollection.getDataWithBundle());
-        startActivityForResult(intent, REQUEST_CODE_PREVIEW);
+        startActivity(PhotoViewActivity.create(this, item));
     }
 
     @Override

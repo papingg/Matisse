@@ -46,6 +46,7 @@ dependencies {
 
     provided 'it.sephiroth.android.library.imagezoom:imagezoom:2.3.0'
     provided 'com.github.bumptech.glide:glide:4.1.1'
+
 }
 
 // jcenter configuration for novoda's bintray-release
